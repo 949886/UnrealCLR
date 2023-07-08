@@ -3463,6 +3463,16 @@ namespace UnrealEngine.Framework {
 		/// <summary>
 		/// Logs a message in accordance to the specified level, omitted in builds with the <a href="https://docs.unrealengine.com/en-US/Programming/Development/BuildConfigurations/index.html#buildconfigurationdescriptions">Shipping</a> configuration
 		/// </summary>
+		public static void Log(string message, LogLevel level = LogLevel.Display) {
+			if (message == null)
+				throw new ArgumentNullException(nameof(message));
+
+			log(level, message.StringToBytes());
+		}
+
+		/// <summary>
+		/// Logs a message in accordance to the specified level, omitted in builds with the <a href="https://docs.unrealengine.com/en-US/Programming/Development/BuildConfigurations/index.html#buildconfigurationdescriptions">Shipping</a> configuration
+		/// </summary>
 		public static void Log(LogLevel level, string message) {
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));

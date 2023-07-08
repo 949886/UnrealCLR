@@ -245,7 +245,7 @@ namespace UnrealEngine.Runtime {
 				try {
 					const string frameworkAssemblyName = "UnrealEngine.Framework";
 					string assemblyPath = Assembly.GetExecutingAssembly().Location;
-					string managedFolder = assemblyPath.Substring(0, assemblyPath.IndexOf("Plugins", StringComparison.Ordinal)) + "Managed";
+					string managedFolder = assemblyPath.Substring(0, assemblyPath.LastIndexOf("Plugins", StringComparison.Ordinal)) + "Managed";
 					string[] folders = Directory.GetDirectories(managedFolder);
 
 					Array.Resize(ref folders, folders.Length + 1);
